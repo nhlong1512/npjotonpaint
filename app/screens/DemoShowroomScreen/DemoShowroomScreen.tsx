@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link, RouteProp, useRoute } from "@react-navigation/native"
 import React, { FC, ReactElement, useEffect, useRef, useState } from "react"
 import {
@@ -13,7 +14,7 @@ import {
 } from "react-native"
 import { DrawerLayout, DrawerState } from "react-native-gesture-handler"
 import { useSharedValue, withTiming } from "react-native-reanimated"
-import { ListItem, Screen, Text } from "../../components"
+import { Icon, ListItem, Screen, Text } from "../../components"
 import { isRTL } from "../../i18n"
 import { DemoTabParamList, DemoTabScreenProps } from "../../navigators/DemoNavigator"
 import { colors, spacing } from "../../theme"
@@ -201,34 +202,158 @@ export const DemoShowroomScreen: FC<DemoTabScreenProps<"DemoShowroom">> =
         <Screen preset="fixed" safeAreaEdges={["top"]} contentContainerStyle={$screenContainer}>
           <DrawerIconButton onPress={toggleDrawer} {...{ open, progress }} />
 
-          <SectionList
-            ref={listRef}
-            contentContainerStyle={$sectionListContentContainer}
-            stickySectionHeadersEnabled={false}
-            sections={Object.values(Demos)}
-            renderItem={({ item }) => item}
-            renderSectionFooter={() => <View style={$demoUseCasesSpacer} />}
-            ListHeaderComponent={
-              <View style={$heading}>
-                <Text preset="heading" tx="demoShowroomScreen.jumpStart" />
-              </View>
-            }
-            onScrollToIndexFailed={scrollToIndexFailed}
-            renderSectionHeader={({ section }) => {
-              return (
-                <View>
-                  <Text preset="heading" style={$demoItemName}>
-                    {section.name}
-                  </Text>
-                  <Text style={$demoItemDescription}>{section.description}</Text>
+          <View style={$heading}>
+            <Text preset="subheading" text="Menu" />
+          </View>
+
+          <View style={$listItems}>
+            <View style={$rowItems}>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="homeIcon" size={40} />
                 </View>
-              )
-            }}
-          />
+                <Text style={$itemText}>Trang chủ</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="calculatorIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Tính toán sơn</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="folderIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Danh mục màu</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="threedIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Phối màu 3D</Text>
+              </View>
+            </View>
+            <View style={$rowItems}>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="homeIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Tìm nhanh màu yêu thích</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="calculatorIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Kiểm tra mã SP</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="folderIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Mua hàng online</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="threedIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Về JotonPoint</Text>
+              </View>
+            </View>
+            <View style={$rowItems}>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="homeIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Tìm đại lý</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="calculatorIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Dịch vụ</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="folderIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Thẻ thành viên</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="threedIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Tài khoản</Text>
+              </View>
+            </View>
+            <View style={$rowItems}>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="homeIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Đổi quà</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="calculatorIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Tìm khuyến mãi</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="folderIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Quét mã tích điểm</Text>
+              </View>
+              <View style={$itemWrap}>
+                <View style={$item}>
+                  <Icon icon="threedIcon" size={40} />
+                </View>
+                <Text style={$itemText}>Sản phẩm</Text>
+              </View>
+            </View>
+          </View>
         </Screen>
       </DrawerLayout>
     )
   }
+
+const $listItems: ViewStyle = {
+  flex: 1,
+}
+
+const $rowItems: ViewStyle = {
+  flexDirection: "row",
+  gap: 10,
+  flexWrap: "wrap",
+  justifyContent: "space-between",
+  alignItems: "flex-start",
+  paddingHorizontal: spacing.sm,
+}
+
+const $itemWrap: ViewStyle = {
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+  marginBottom: spacing.lg,
+}
+
+const $item: ViewStyle = {
+  alignItems: "center",
+  backgroundColor: "#fff",
+  borderColor: "#ccc",
+  borderWidth: 1,
+  borderRadius: 10,
+  justifyContent: "center",
+  width: "100%",
+  paddingTop: 20,
+  paddingBottom: 20,
+}
+
+const $itemText: TextStyle = {
+  textAlign: "center",
+  fontSize: 10,
+  lineHeight: 12,
+}
 
 const $screenContainer: ViewStyle = {
   flex: 1,
@@ -240,7 +365,7 @@ const $drawer: ViewStyle = {
 }
 
 const $flatListContentContainer: ViewStyle = {
-  paddingHorizontal: spacing.lg,
+  paddingHorizontal: spacing.sm,
 }
 
 const $sectionListContentContainer: ViewStyle = {
@@ -248,7 +373,8 @@ const $sectionListContentContainer: ViewStyle = {
 }
 
 const $heading: ViewStyle = {
-  marginBottom: spacing.xxxl,
+  marginBottom: spacing.xl,
+  paddingHorizontal: spacing.sm,
 }
 
 const $logoImage: ImageStyle = {

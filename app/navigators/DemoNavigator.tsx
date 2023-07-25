@@ -48,7 +48,7 @@ export function DemoNavigator() {
         name="DemoShowroom"
         component={DemoShowroomScreen}
         options={{
-          tabBarLabel: translate("demoNavigator.componentsTab"),
+          tabBarLabel: 'Menu',
           tabBarIcon: ({ focused }) => (
             <Icon icon="components" color={focused && colors.tint} size={30} />
           ),
@@ -59,7 +59,7 @@ export function DemoNavigator() {
         name="DemoCommunity"
         component={DemoCommunityScreen}
         options={{
-          tabBarLabel: translate("demoNavigator.communityTab"),
+          tabBarLabel: 'Mua sắm',
           tabBarIcon: ({ focused }) => (
             <Icon icon="community" color={focused && colors.tint} size={30} />
           ),
@@ -71,7 +71,7 @@ export function DemoNavigator() {
         component={DemoPodcastListScreen}
         options={{
           tabBarAccessibilityLabel: translate("demoNavigator.podcastListTab"),
-          tabBarLabel: translate("demoNavigator.podcastListTab"),
+          tabBarLabel: 'Tìm đại lý',
           tabBarIcon: ({ focused }) => (
             <Icon icon="podcast" color={focused && colors.tint} size={30} />
           ),
@@ -82,7 +82,7 @@ export function DemoNavigator() {
         name="DemoDebug"
         component={DemoDebugScreen}
         options={{
-          tabBarLabel: translate("demoNavigator.debugTab"),
+          tabBarLabel: 'Tài khoản',
           tabBarIcon: ({ focused }) => (
             <Icon icon="debug" color={focused && colors.tint} size={30} />
           ),
