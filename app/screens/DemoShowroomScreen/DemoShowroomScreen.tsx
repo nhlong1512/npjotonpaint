@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-color-literals */
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link, RouteProp, useRoute } from "@react-navigation/native"
 import React, { FC, ReactElement, useEffect, useRef, useState } from "react"
@@ -6,9 +8,13 @@ import {
   FlatList,
   Image,
   ImageStyle,
+  LayoutRectangle,
+  Modal,
   Platform,
   SectionList,
   TextStyle,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
   ViewStyle,
 } from "react-native"
@@ -34,6 +40,11 @@ interface DemoListItem {
   item: { name: string; useCases: string[] }
   sectionIndex: number
   handleScroll?: (sectionIndex: number, itemIndex?: number) => void
+}
+
+interface Option {
+  label: string
+  value: string
 }
 
 const slugify = (str) =>
@@ -95,6 +106,236 @@ export const DemoShowroomScreen: FC<DemoTabScreenProps<"DemoShowroom">> =
     const progress = useSharedValue(0)
     const route = useRoute<RouteProp<DemoTabParamList, "DemoShowroom">>()
     const params = route.params
+
+    const [showDropdown1, setShowDropdown1] = useState(false)
+    const [appLayout1, setAppLayout1] = useState<LayoutRectangle>()
+    const handleAppLayout1 = (event: LayoutRectangle) => {
+      setAppLayout1(event)
+    }
+    const handleAppPress1 = () => {
+      setShowDropdown1(true)
+      console.log("App pressed", showDropdown1)
+    }
+    const handleOptionSelect1 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown1(false)
+    }
+
+    const [showDropdown5, setShowDropdown5] = useState(false)
+    const [appLayout5, setAppLayout5] = useState<LayoutRectangle>()
+    const handleAppLayout5 = (event: LayoutRectangle) => {
+      setAppLayout5(event)
+    }
+    const handleAppPress5 = () => {
+      setShowDropdown5(true)
+      console.log("App pressed", showDropdown5)
+    }
+    const handleOptionSelect5 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown5(false)
+    }
+
+    const [showDropdown9, setShowDropdown9] = useState(false)
+    const [appLayout9, setAppLayout9] = useState<LayoutRectangle>()
+    const handleAppLayout9 = (event: LayoutRectangle) => {
+      setAppLayout9(event)
+    }
+    const handleAppPress9 = () => {
+      setShowDropdown9(true)
+      console.log("App pressed", showDropdown9)
+    }
+    const handleOptionSelect9 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown9(false)
+    }
+
+    const [showDropdown13, setShowDropdown13] = useState(false)
+    const [appLayout13, setAppLayout13] = useState<LayoutRectangle>()
+    const handleAppLayout13 = (event: LayoutRectangle) => {
+      setAppLayout13(event)
+    }
+    const handleAppPress13 = () => {
+      setShowDropdown13(true)
+      console.log("App pressed", showDropdown13)
+    }
+    const handleOptionSelect13 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown13(false)
+    }
+
+    const [showDropdown2, setShowDropdown2] = useState(false)
+    const [appLayout2, setAppLayout2] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout2 = (event: LayoutRectangle) => {
+      setAppLayout2(event)
+    }
+    const handleAppPress2 = () => {
+      setShowDropdown2(true)
+      console.log("App pressed", showDropdown2)
+    }
+    const handleOptionSelect2 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown2(false)
+    }
+
+    const [showDropdown6, setShowDropdown6] = useState(false)
+    const [appLayout6, setAppLayout6] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout6 = (event: LayoutRectangle) => {
+      setAppLayout6(event)
+    }
+    const handleAppPress6 = () => {
+      setShowDropdown6(true)
+      console.log("App pressed", showDropdown6)
+    }
+    const handleOptionSelect6 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown6(false)
+    }
+
+    const [showDropdown10, setShowDropdown10] = useState(false)
+    const [appLayout10, setAppLayout10] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout10 = (event: LayoutRectangle) => {
+      setAppLayout10(event)
+    }
+    const handleAppPress10 = () => {
+      setShowDropdown10(true)
+      console.log("App pressed", showDropdown10)
+    }
+    const handleOptionSelect10 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown10(false)
+    }
+
+    const [showDropdown14, setShowDropdown14] = useState(false)
+    const [appLayout14, setAppLayout14] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout14 = (event: LayoutRectangle) => {
+      setAppLayout14(event)
+    }
+    const handleAppPress14 = () => {
+      setShowDropdown14(true)
+      console.log("App pressed", showDropdown14)
+    }
+    const handleOptionSelect14 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown14(false)
+    }
+
+    const [showDropdown3, setShowDropdown3] = useState(false)
+    const [appLayout3, setAppLayout3] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout3 = (event: LayoutRectangle) => {
+      setAppLayout3(event)
+    }
+    const handleAppPress3 = () => {
+      setShowDropdown3(true)
+      console.log("App pressed", showDropdown3)
+    }
+    const handleOptionSelect3 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown3(false)
+    }
+
+    const [showDropdown7, setShowDropdown7] = useState(false)
+    const [appLayout7, setAppLayout7] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout7 = (event: LayoutRectangle) => {
+      setAppLayout7(event)
+    }
+    const handleAppPress7 = () => {
+      setShowDropdown7(true)
+      console.log("App pressed", showDropdown7)
+    }
+    const handleOptionSelect7 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown7(false)
+    }
+
+    const [showDropdown11, setShowDropdown11] = useState(false)
+    const [appLayout11, setAppLayout11] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout11 = (event: LayoutRectangle) => {
+      setAppLayout11(event)
+    }
+    const handleAppPress11 = () => {
+      setShowDropdown11(true)
+      console.log("App pressed", showDropdown11)
+    }
+    const handleOptionSelect11 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown11(false)
+    }
+
+    const [showDropdown15, setShowDropdown15] = useState(false)
+    const [appLayout15, setAppLayout15] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout15 = (event: LayoutRectangle) => {
+      setAppLayout15(event)
+    }
+    const handleAppPress15 = () => {
+      setShowDropdown15(true)
+      console.log("App pressed", showDropdown15)
+    }
+    const handleOptionSelect15 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown15(false)
+    }
+
+    const [showDropdown4, setShowDropdown4] = useState(false)
+    const [appLayout4, setAppLayout4] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout4 = (event: LayoutRectangle) => {
+      setAppLayout4(event)
+    }
+    const handleAppPress4 = () => {
+      setShowDropdown4(true)
+      console.log("App pressed", showDropdown4)
+    }
+    const handleOptionSelect4 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown4(false)
+    }
+
+    const [showDropdown8, setShowDropdown8] = useState(false)
+    const [appLayout8, setAppLayout8] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout8 = (event: LayoutRectangle) => {
+      setAppLayout8(event)
+    }
+    const handleAppPress8 = () => {
+      setShowDropdown8(true)
+      console.log("App pressed", showDropdown8)
+    }
+    const handleOptionSelect8 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown8(false)
+    }
+
+    const [showDropdown12, setShowDropdown12] = useState(false)
+    const [appLayout12, setAppLayout12] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout12 = (event: LayoutRectangle) => {
+      setAppLayout12(event)
+    }
+    const handleAppPress12 = () => {
+      setShowDropdown12(true)
+      console.log("App pressed", showDropdown12)
+    }
+    const handleOptionSelect12 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown12(false)
+    }
+
+    const [showDropdown16, setShowDropdown16] = useState(false)
+    const [appLayout16, setAppLayout16] = useState<LayoutRectangle | null>(null)
+    const handleAppLayout16 = (event: LayoutRectangle) => {
+      setAppLayout16(event)
+    }
+    const handleAppPress16 = () => {
+      setShowDropdown16(true)
+      console.log("App pressed", showDropdown16)
+    }
+    const handleOptionSelect16 = (option: Option) => {
+      console.log("Selected option:", option.value)
+      setShowDropdown16(false)
+    }
+
+    const options: Option[] = [
+      { label: "Remove App", value: "delete" },
+      { label: "Upgrade", value: "update" },
+      { label: "Detail", value: "detail" },
+    ]
 
     // handle Web links
     React.useEffect(() => {
@@ -205,113 +446,548 @@ export const DemoShowroomScreen: FC<DemoTabScreenProps<"DemoShowroom">> =
           <View style={$heading}>
             <Text preset="subheading" text="Menu" />
           </View>
-
-          <View style={$listItems}>
-            <View style={$rowItems}>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="homeIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Trang chủ</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="calculatorIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Tính toán sơn</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="folderIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Danh mục màu</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="threedIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Phối màu 3D</Text>
-              </View>
-            </View>
-            <View style={$rowItems}>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="homeIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Tìm nhanh màu yêu thích</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="calculatorIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Kiểm tra mã SP</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="folderIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Mua hàng online</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="threedIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Về JotonPoint</Text>
-              </View>
-            </View>
-            <View style={$rowItems}>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="homeIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Tìm đại lý</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="calculatorIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Dịch vụ</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="folderIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Thẻ thành viên</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="threedIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Tài khoản</Text>
-              </View>
-            </View>
-            <View style={$rowItems}>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="homeIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Đổi quà</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="calculatorIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Tìm khuyến mãi</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="folderIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Quét mã tích điểm</Text>
-              </View>
-              <View style={$itemWrap}>
-                <View style={$item}>
-                  <Icon icon="threedIcon" size={40} />
-                </View>
-                <Text style={$itemText}>Sản phẩm</Text>
-              </View>
-            </View>
+          <View style={$phoneView}>
+            <Icon icon="phoneIcon" color="white" size={36} />
           </View>
+
+          <TouchableOpacity style={$listItems}>
+            <View style={$rowItems}>
+              <TouchableWithoutFeedback onPress={handleAppPress1}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout1(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="homeIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Trang chủ</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown1} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout1 ? appLayout1.y + appLayout1.height : 0,
+                    left: appLayout1 ? appLayout1.width * 1.15 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown1(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect1(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress2}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout2(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="calculatorIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Tính toán sơn</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown2} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout2 ? appLayout2.y + appLayout2.height : 0,
+                    left: appLayout2 ? appLayout2.width + appLayout2.x : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown2(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect2(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress3}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout3(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="folderIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Danh mục màu</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown3} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout3 ? appLayout3.y + appLayout3.height * 0.9 : 0,
+                    left: appLayout3 ? appLayout3.width : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown3(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect3(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress4}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout4(event.nativeEvent.layout)}
+                >
+                  <View style={$itemActive}>
+                    <Icon icon="threedIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Phối màu 3D</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown4} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout4 ? appLayout4.y + appLayout4.height : 0,
+                    left: appLayout4 ? appLayout4.x - appLayout4.width*1.7 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown4(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect4(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+            </View>
+
+            <View style={$rowItems}>
+              <TouchableWithoutFeedback onPress={handleAppPress5}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout5(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="homeIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Tìm nhanh màu yêu thích</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown5} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout5 ? appLayout5.y + appLayout5.height * 2.2 : 0,
+                    left: appLayout5 ? appLayout5.width*1.15 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown5(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect5(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress6}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout6(event.nativeEvent.layout)}
+                >
+                  <View style={$itemActive}>
+                    <Icon icon="calculatorIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Kiểm tra mã SP</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown6} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout6 ? appLayout6.y + appLayout6.height * 2.2 : 0,
+                    left: appLayout6 ? appLayout6.width + appLayout6.x : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown6(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect6(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress7}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout7(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="folderIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Mua hàng Online</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown7} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout7 ? appLayout7.y + appLayout7.height * 1.9 : 0,
+                    left: appLayout7 ? appLayout7.width : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown7(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect7(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress8}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout8(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="threedIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Về JotonPaint</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown8} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout8 ? appLayout8.y + appLayout8.height * 2.2 : 0,
+                    left: appLayout8 ? appLayout8.x - appLayout8.width*1.7 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown8(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect8(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+            </View>
+
+            <View style={$rowItems}>
+              <TouchableWithoutFeedback onPress={handleAppPress9}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout9(event.nativeEvent.layout)}
+                >
+                  <View style={$itemActive}>
+                    <Icon icon="homeIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Tìm đại lý</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown9} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout9 ? appLayout9.y + appLayout9.height * 3.4 : 0,
+                    left: appLayout9 ? appLayout9.width * 1.15 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown1(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect9(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress10}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout10(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="calculatorIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Dịch vụ</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown10} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout10 ? appLayout10.y + appLayout10.height * 3.4 : 0,
+                    left: appLayout10 ? appLayout10.width + appLayout10.x : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown10(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect10(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress11}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout11(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="folderIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Thẻ thành viên</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown11} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout11 ? appLayout11.y + appLayout11.height * 2.9 : 0,
+                    left: appLayout11 ? appLayout11.width : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown11(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect11(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress12}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout12(event.nativeEvent.layout)}
+                >
+                  <View style={$itemActive}>
+                    <Icon icon="threedIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Tài khoản</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown12} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout12 ? appLayout12.y + appLayout12.height * 3.4 : 0,
+                    left: appLayout12 ? appLayout12.x - appLayout12.width*1.7 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown12(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect12(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+            </View>
+
+            <View style={$rowItems}>
+              <TouchableWithoutFeedback onPress={handleAppPress13}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout13(event.nativeEvent.layout)}
+                >
+                  <View style={$itemActive}>
+                    <Icon icon="homeIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Đổi quà</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown13} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout13 ? appLayout13.height * 4.6 : 0,
+                    left: appLayout13 ? appLayout13.width * 1.15 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown13(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect13(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress14}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout14(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="calculatorIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Tìm khuyến mãi</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown14} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout14 ? appLayout14.y + appLayout14.height * 4.6 : 0,
+                    left: appLayout14 ? appLayout14.width + appLayout14.x : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown14(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect14(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress15}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout15(event.nativeEvent.layout)}
+                >
+                  <View style={$itemActive}>
+                    <Icon icon="folderIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Quét mã tích điểm</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown15} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout15 ? appLayout15.y + appLayout15.height * 4.0 : 0,
+                    left: appLayout15 ? appLayout15.width : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown15(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect15(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+
+              <TouchableWithoutFeedback onPress={handleAppPress16}>
+                <View
+                  style={$itemWrap}
+                  onLayout={(event) => handleAppLayout16(event.nativeEvent.layout)}
+                >
+                  <View style={$item}>
+                    <Icon icon="threedIcon" size={40} />
+                  </View>
+                  <Text style={$itemText}>Sản phẩm</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <Modal visible={showDropdown16} transparent>
+                <TouchableOpacity
+                  style={{
+                    position: "absolute",
+                    top: appLayout16 ? appLayout16.y + appLayout16.height * 4.6 : 0,
+                    left: appLayout16 ? appLayout16.x - appLayout16.width*1.7 : 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: 10,
+                  }}
+                  onPress={() => setShowDropdown16(false)}
+                >
+                  {options.map((option) => (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => handleOptionSelect16(option)}
+                    >
+                      <Text style={{ color: "white" }}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </TouchableOpacity>
+              </Modal>
+            </View>
+            
+          </TouchableOpacity>
         </Screen>
       </DrawerLayout>
     )
@@ -321,9 +997,19 @@ const $listItems: ViewStyle = {
   flex: 1,
 }
 
+const $phoneView: ViewStyle = {
+  position: "absolute",
+  bottom: 20,
+  right: 10,
+  padding: 10,
+  borderRadius: 50,
+  backgroundColor: "#4527c0",
+  zIndex: 2,
+}
+
 const $rowItems: ViewStyle = {
   flexDirection: "row",
-  gap: 10,
+  gap: 20,
   flexWrap: "wrap",
   justifyContent: "space-between",
   alignItems: "flex-start",
@@ -334,7 +1020,7 @@ const $itemWrap: ViewStyle = {
   flex: 1,
   alignItems: "center",
   justifyContent: "center",
-  marginBottom: spacing.lg,
+  marginBottom: 4,
 }
 
 const $item: ViewStyle = {
@@ -345,8 +1031,20 @@ const $item: ViewStyle = {
   borderRadius: 10,
   justifyContent: "center",
   width: "100%",
-  paddingTop: 20,
-  paddingBottom: 20,
+  paddingTop: 15,
+  paddingBottom: 15,
+}
+
+const $itemActive: ViewStyle = {
+  backgroundColor: "#fef19a",
+  alignItems: "center",
+  borderColor: "#ccc",
+  borderWidth: 1,
+  borderRadius: 10,
+  justifyContent: "center",
+  width: "100%",
+  paddingTop: 15,
+  paddingBottom: 15,
 }
 
 const $itemText: TextStyle = {

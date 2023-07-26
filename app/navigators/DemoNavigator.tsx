@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { BottomTabScreenProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { CompositeScreenProps } from "@react-navigation/native"
+import PaintScreen from "app/screens/PaintScreen"
 import React from "react"
-import { TextStyle, ViewStyle } from "react-native"
+import { TextStyle, View, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Icon } from "../components"
 import { translate } from "../i18n"
@@ -15,6 +17,7 @@ export type DemoTabParamList = {
   DemoShowroom: { queryIndex?: string; itemIndex?: string }
   DemoDebug: undefined
   DemoPodcastList: undefined
+  Paint: undefined
 }
 
 /**
@@ -50,7 +53,9 @@ export function DemoNavigator() {
         options={{
           tabBarLabel: 'Menu',
           tabBarIcon: ({ focused }) => (
-            <Icon icon="components" color={focused && colors.tint} size={30} />
+            <View>
+              <Icon icon="menu2Icon" color={focused ? colors.main : colors.main2} size={30} />
+            </View>
           ),
         }}
       />
@@ -61,7 +66,19 @@ export function DemoNavigator() {
         options={{
           tabBarLabel: 'Mua sắm',
           tabBarIcon: ({ focused }) => (
-            <Icon icon="community" color={focused && colors.tint} size={30} />
+            <Icon icon="cartIcon" color={focused ?colors.main : colors.main2} size={30} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Paint"
+        component={PaintScreen}
+        options={{
+          tabBarLabel: 'Công cụ',
+          tabBarIcon: ({ focused }) => (
+            <View style={$paintView}>
+              <Icon icon="paintIcon" color={focused ? colors.main : 'white'} size={40} />
+            </View>
           ),
         }}
       />
@@ -73,7 +90,7 @@ export function DemoNavigator() {
           tabBarAccessibilityLabel: translate("demoNavigator.podcastListTab"),
           tabBarLabel: 'Tìm đại lý',
           tabBarIcon: ({ focused }) => (
-            <Icon icon="podcast" color={focused && colors.tint} size={30} />
+            <Icon icon="shopIcon" color={focused ?colors.main : colors.main2} size={30} />
           ),
         }}
       />
@@ -84,12 +101,32 @@ export function DemoNavigator() {
         options={{
           tabBarLabel: 'Tài khoản',
           tabBarIcon: ({ focused }) => (
-            <Icon icon="debug" color={focused && colors.tint} size={30} />
+            <Icon icon="accountIcon" color={focused ?colors.main : colors.main2} size={30} />
           ),
         }}
       />
     </Tab.Navigator>
   )
+}
+
+const $paintView: ViewStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: colors.main2,
+  padding:20,
+  marginBottom:50,
+  borderRadius: 50,
+  width: 60,
+  height: 60,
+}
+const $paintIcon: ViewStyle = {
+  // backgroundColor: colors.main2,
+  // padding:20,
+  // marginBottom:40,
+  // borderRadius: 50,
+  // width: 60,
+  // height: 60,
 }
 
 const $tabBar: ViewStyle = {
